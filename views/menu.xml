@@ -1,0 +1,37 @@
+<odoo>
+    <menuitem id="student_root"
+              name="Student Management"
+    />
+    <menuitem id="student_list_view_root"
+              name="Student"
+              parent="student_root"
+              sequence="1"
+    />
+    <menuitem id="student_details_view"
+              name="Student Details"
+              parent="student_list_view_root"
+              action="action_student_management"/>
+
+    <menuitem id="parent_list_form_view_root"
+              name="Parent"
+              parent="student_root"
+              action="action_parent_details"
+              sequence="2"/>
+
+    <menuitem id="school_list_form_view_root"
+              name="School"
+              parent="student_root"
+              action="action_school"
+              sequence="3"
+    />
+    <menuitem id="ph_no_wizard"
+              name="Phone Number Updation"
+              parent="student_root"
+              action="action_update_ph"
+              sequence="4"/>
+    <menuitem id="filter_wizard"
+              name="Student Filter"
+              parent="student_root"
+              action="action_filter"
+              sequence="5"/>
+</odoo>

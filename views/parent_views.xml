@@ -1,0 +1,90 @@
+<odoo>
+    <record id="view_parent_details" model="ir.ui.view">
+        <field name="name">view.parent.details</field>
+        <field name="model">parent.details</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="parent_name"/>
+                <field name="student_id"/>
+                <field name="age"/>
+                <field name="email"/>
+            </list>
+        </field>
+    </record>
+    <record id="parent_form_view" model="ir.ui.view">
+        <field name="name">parent.form.view</field>
+        <field name="model">parent.details</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="action" class="btn btn-primary"
+                            name="%(student_management.action_student_management)d" string="view student"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="parent_name"/>
+                            <field name="blood_group"/>
+                            <field name="email"/>
+                            <field name="age"/>
+                            <field name="student_id"/>
+                            <field name="date_of_birth"/>
+
+                        </group>
+                        <group>
+                            <field name="relationship"/>
+                            <field name="religion"/>
+                            <field name="phone"/>
+                            <field name="student_ids" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Address">
+                                <group>
+                                    <label for='street' string="Current Address"/>
+                                    <div class="o_address_format">
+                                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                                        <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                        <field name="city" placeholder="City" class="o_address_city"/>
+                                        <field name="new_state_id" placeholder="State" class="o_address_state"/>
+                                        <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                        <div name="partner_address_country" class="d-flex justify-content-between">
+                                            <field name="new_country_id" placeholder="Country"
+                                                   class="o_address_country"/>
+                                        </div>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="is_same_address"/>
+                                </group>
+                                <group>
+                                    <label for='perment_street' string="Permanent Address"/>
+                                    <div class="o_address_format">
+                                        <field name="perment_street" placeholder="Street..." class="o_address_street"/>
+                                        <field name="perment_street2" placeholder="Street 2..."
+                                               class="o_address_street"/>
+                                        <field name="perment_city" placeholder="City" class="o_address_city"/>
+                                        <field name="permanent_state_id" placeholder="State" class="o_address_state"/>
+                                        <field name="perment_zip" placeholder="ZIP" class="o_address_zip"/>
+                                        <div name="permanent_country_id" class="d-flex justify-content-between">
+                                            <field name="permanent_country_id" placeholder="Country"
+                                                   class="o_address_country"/>
+                                        </div>
+                                    </div>
+                                </group>
+
+
+                            </page>
+
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_parent_details" model="ir.actions.act_window">
+        <field name="name">parent</field>
+        <field name="res_model">parent.details</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

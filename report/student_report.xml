@@ -1,0 +1,20 @@
+<odoo>
+    <record id="action_report_student" model="ir.actions.report">
+        <field name="name">Student Report Pdf</field>
+        <field name="model">students.management</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_management.report_student_template</field>
+        <field name="report_file">student_management.report_student_template</field>
+        <field name="binding_model_id" ref="student_management.model_students_management"/>
+        <field name="binding_type">report</field>
+    </record>
+<!--    <record id="action_report_pdf" model="ir.actions.report">-->
+<!--        <field name="name">Action Report Pdf</field>-->
+<!--        <field name="model">students.management</field>-->
+<!--        <field name="report_type">xlsx</field>-->
+<!--        <field name="report_name">student_management.report_student_template</field>-->
+<!--        <field name="report_file">student_management.report_student_template</field>-->
+<!--        <field name="binding_model_id" ref="student_management.model_students_management"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+</odoo>

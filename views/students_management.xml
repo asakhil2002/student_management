@@ -1,0 +1,108 @@
+<odoo>
+    <record id="view_student_details" model="ir.ui.view">
+        <field name="name">view.student.details</field>
+        <field name="model">students.management</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="email"/>
+                <field name="status" widget="badge"
+                decoration-primary="status == 'draft'"
+                decoration-success="status == 'pass'"
+                decoration-danger="status == 'fail'"/>
+            </list>
+        </field>
+    </record>
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">student.form.view</field>
+        <field name="model">students.management</field>
+        <field name="arch" type="xml">
+
+            <form>
+
+                <header>
+                    <button type="action" class="btn btn-primary" name="%(student_management.action_parent_details)d" string="view parent"/>
+                    <field name="status" widget="statusbar"/>
+                    <button type="object" class="btn btn-primary" name="action_draft" string="draft" invisible="status == 'draft'"/>
+                    <button type="object" class="btn btn-success" name="action_pass" string="pass" invisible="status in['pass','fail']"/>
+                    <button type="object" class="btn btn-danger" name="action_fail" string="fail" invisible="status in['pass','fail']"/>
+
+                </header>
+                <sheet>
+                    <div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="ref_id" readonly="1"/>
+                            </h1>
+                        </div>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="blood_group"/>
+                            <field name="email"/>
+                            <field name="age"/>
+                            <field name="date_of_birth"/>
+                        </group>
+                        <group>
+                            <field name="relationship"/>
+                            <field name="religion"/>
+                            <field name="phone"/>
+                            <field name="school_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Address">
+                                <group>
+                                    <label for ='street'  string="Current Address"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="city" placeholder="City" class="o_address_city"/>
+                                    <field name="new_state_id" placeholder="State" class="o_address_state"/>
+                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <div name="partner_address_country" class="d-flex justify-content-between">
+                                        <field name="new_country_id" placeholder="Country" class="o_address_country"/>
+                                    </div>
+                                </div>
+                                </group>
+                                <group>
+                                    <field name="is_same_address"/>
+                                </group>
+                                <group>
+                                    <label for ='perment_street'  string="Permanent Address"/>
+                                <div class="o_address_format">
+                                    <field name="perment_street" placeholder="Street..." class="o_address_street"/>
+                                    <field name="perment_street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="perment_city" placeholder="City" class="o_address_city"/>
+                                    <field name="permanent_state_id" placeholder="State" class="o_address_state"/>
+                                    <field name="perment_zip" placeholder="ZIP" class="o_address_zip"/>
+                                    <div name="partner_address_country" class="d-flex justify-content-between">
+                                        <field name="permanent_country_id" placeholder="Country" class="o_address_country"/>
+                                    </div>
+                                </div>
+                                </group>
+
+                            </page>
+                            <page string="parent">
+                                <field name="parent_ids"/>
+                                <list>
+                                </list>
+                            </page>
+
+                        </notebook>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <menuitem id="student_root"
+              name="Student Management"
+    />
+    <record id="action_student_management" model="ir.actions.act_window">
+        <field name="name">student</field>
+        <field name="res_model">students.management</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

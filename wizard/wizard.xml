@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_update_ph_no" model="ir.ui.view">
+        <field name="name">view.update.ph.no</field>
+        <field name="model">update.phno</field>
+        <field name="arch" type="xml">
+            <form string="Student ph no updation">
+                <group>
+                    <field name="student"/>
+                    <field name="update"/>
+                </group>
+                <footer>
+                    <button string="Update" type="object" name="updatephno" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_update_ph" model="ir.actions.act_window">
+        <field name="name">Phone Number Updation</field>
+        <field name="res_model">update.phno</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record id="filter_student" model="ir.ui.view">
+        <field name="name">filter.student</field>
+        <field name="model">age.filter</field>
+        <field name="arch" type="xml">
+            <form string="Student Filter">
+                <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </group>
+                <footer>
+                    <button string="Filter Students" type="object" name="filter_age" class="btn-primary"/>
+                    <button string="Cancel" special="cancel"/>
+
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_filter" model="ir.actions.act_window">
+        <field name="name">action.filter</field>
+        <field name="res_model">age.filter</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

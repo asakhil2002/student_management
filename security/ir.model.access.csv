@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_student,students_management,model_students_management,,1,1,1,1
+access_parent_parent,parent_details,model_parent_details,,1,1,1,1
+access_school_school,school_details,model_school_details,,1,1,1,1
+access_update_ph,update_ph,model_update_phno,,1,1,1,1
+access_student_filter,student_filter,model_age_filter,,1,1,1,1
+access_student_group,access_student,model_students_management,group_student,1,0,0,0
+access_principal_group,access_principal,model_students_management,group_principal,1,1,1,1
